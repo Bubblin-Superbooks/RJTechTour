@@ -57,7 +57,7 @@ $(function(){
           return t;
         },
         easeInOutExpo: function (t) {
-          var v = t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
+          var v = t<0.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
           return (v>1) ? 1 : v;
         }
       },
@@ -156,7 +156,8 @@ $(function(){
         ];
         cmd = cmd.join(' ');
         return cmd;
-    };
+    }
+
     function pathMouseEnter(e) {
       var order = $(this).data().order;
       $tip.text(data[order].title + ": " + data[order].value)
