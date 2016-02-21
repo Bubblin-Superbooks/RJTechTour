@@ -15,13 +15,8 @@ body {
   background-size: cover;
 }
 
-article {
-  color: #ccc;
-}
-
-header {
-  text-align: center;
-  padding: 0 4vw;
+.writeup{
+  height: 50vh;
 }
 
 h1 {
