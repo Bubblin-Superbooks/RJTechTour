@@ -1,0 +1,108 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+body {
+  background: #fff;
+  padding: 1vw;
+  font: normal normal 100%/4vw 'Arvo',sans-serif;
+}
+
+
+.tile-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100%;
+  margin: auto;
+}
+
+.tile {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 35vw;
+      -ms-flex: 1 0 35vw;
+          flex: 1 0 35vw;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0.5vw;
+  padding: 2vw;
+  box-shadow: 0 0 0 1px #999, 0 1px 2px #999;
+  border-top: 8px solid;
+  border-radius: 5px;
+}
+.tile-heading {
+  font-weight: 700;
+}
+.tile-img {
+  margin: -40px -40px 40px;
+}
+.tile-img img {
+  width: 100%;
+  margin: 0;
+}
+.tile-contents blockquote {
+  margin: 0;
+  font-size: 1.5em;
+}
+.tile-contents blockquote p {
+  position: relative;
+}
+.tile-contents blockquote p:before, .tile-contents blockquote p:after {
+  content: '"';
+  display: inline-block;
+  margin: 0 .25em;
+  color: #ccc;
+}
+.tile-sharelinks-link {
+  display: inline-block;
+  padding: .5em 20px;
+  border-radius: 5px;
+  color: white;
+  background: teal;
+  text-decoration: none;
+}
+.tile-sharelinks-link:hover {
+  background: #004d4d;
+}
+.tile:nth-child(odd) {
+  border-top-color: teal;
+}
+.tile:nth-child(even) {
+  border-top-color: wheat;
+}
+.tile:nth-child(2n+3) {
+  -webkit-flex-basis: 300px;
+      -ms-flex-preferred-size: 300px;
+          flex-basis: 300px;
+}
+.tile:nth-child(4n+5) {
+  -webkit-flex-basis: 450px;
+      -ms-flex-preferred-size: 450px;
+          flex-basis: 450px;
+}
+.tile--quote .tile-heading {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 20px;
+  }
+
+  .tile {
+    -webkit-flex-basis: 100% !important;
+        -ms-flex-preferred-size: 100% !important;
+            flex-basis: 100% !important;
+    max-width: 100%;
+  }
+}
