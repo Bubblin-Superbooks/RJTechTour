@@ -23,7 +23,7 @@ img {
 blockquote {
   border-left: 0.2em solid #fcf704;
   font-size: 4vw;
-  padding: 1vw 2vw;
+  padding: 0vw 2vw;
   line-height: 1.5;
   margin-left: 0;
   margin-right: 0;
@@ -41,6 +41,7 @@ blockquote::after {
   content: close-quote;
 }
 .copy {
+  color: rgba(255, 255, 255, 0.6);
   font: 3vw Georgia, Serif;
   text-align: justify;
   -moz-column-count: 2;
