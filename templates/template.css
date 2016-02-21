@@ -78,5 +78,9 @@ a:active {
   text-align: justify;
 }
 
+.center {
+  margin:0 auto;
+  text-align: center;
+}
 
 /* Your custom styles below */
