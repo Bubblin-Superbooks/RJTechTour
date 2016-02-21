@@ -34,7 +34,7 @@ $(function(){
         segmentStrokeWidth : 1,
         baseColor: "rgba(0,0,0,0.5)",
         baseOffset: 4,
-        edgeOffset : 10,//offset from edge of $this
+        edgeOffset : 10,
         percentageInnerCutout : 75,
         animation : true,
         animationSteps : 90,
@@ -81,7 +81,7 @@ $(function(){
         cutoutRadius = doughnutRadius * (settings.percentageInnerCutout / 100),
         segmentTotal = 0;
 
-    //Draw base doughnut
+    
     var baseDoughnutRadius = doughnutRadius + settings.baseOffset,
         baseCutoutRadius = cutoutRadius - settings.baseOffset;
     $(document.createElementNS('http://www.w3.org/2000/svg', 'path'))
@@ -91,16 +91,13 @@ $(function(){
       })
       .appendTo($svg);
 
-    //Set up pie segments wrapper
     var $pathGroup = $(document.createElementNS('http://www.w3.org/2000/svg', 'g'));
     $pathGroup.attr({opacity: 0}).appendTo($svg);
 
-    //Set up tooltip
     var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('body').hide(),
         tipW = $tip.width(),
         tipH = $tip.height();
 
-    //Set up center text area
     var summarySize = (cutoutRadius - (doughnutRadius - cutoutRadius)) * 2,
         $summary = $('<div class="' + settings.summaryClass + '" />')
                    .appendTo($this)
@@ -128,16 +125,12 @@ $(function(){
         .on("mousemove", pathMouseMove);
     }
 
-    //Animation start
     animationLoop(drawPieSegments);
 
-    //Functions
     function getHollowCirclePath(doughnutRadius, cutoutRadius) {
-        //Calculate values for the path.
-        //We needn't calculate startRadius, segmentAngle and endRadius, because base doughnut doesn't animate.
-        var startRadius = -1.570,// -Math.PI/2
-            segmentAngle = 6.2831,// 1 * ((99.9999/100) * (PI*2)),
-            endRadius = 4.7131,// startRadius + segmentAngle
+        var startRadius = -1.570,
+            segmentAngle = 6.2831,
+            endRadius = 4.7131,
             startX = centerX + cos(startRadius) * doughnutRadius,
             startY = centerY + sin(startRadius) * doughnutRadius,
             endX2 = centerX + cos(startRadius) * cutoutRadius,
@@ -148,10 +141,10 @@ $(function(){
             startY2 = centerY + sin(endRadius) * cutoutRadius;
         var cmd = [
           'M', startX, startY,
-          'A', doughnutRadius, doughnutRadius, 0, 1, 1, endX, endY,//Draw outer circle
-          'Z',//Close path
-          'M', startX2, startY2,//Move pointer
-          'A', cutoutRadius, cutoutRadius, 0, 1, 0, endX2, endY2,//Draw inner circle
+          'A', doughnutRadius, doughnutRadius, 0, 1, 1, endX, endY,
+          'Z',
+          'M', startX2, startY2,
+          'A', cutoutRadius, cutoutRadius, 0, 1, 0, endX2, endY2,
           'Z'
         ];
         cmd = cmd.join(' ');
@@ -175,15 +168,14 @@ $(function(){
       });
     }
     function drawPieSegments (animationDecimal) {
-      var startRadius = -PI / 2,//-90 degree
+      var startRadius = -PI / 2,
           rotateAnimation = 1;
-      if (settings.animation && settings.animateRotate) rotateAnimation = animationDecimal;//count up between0~1
+      if (settings.animation && settings.animateRotate) rotateAnimation = animationDecimal;
 
       drawDoughnutText(animationDecimal, segmentTotal);
 
       $pathGroup.attr("opacity", animationDecimal);
 
-      //If data have only one value, we draw hollow circle(#1).
       if (data.length === 1 && (4.7122 < (rotateAnimation * ((data[0].value / segmentTotal) * (PI * 2)) + startRadius))) {
         $paths[0].attr("d", getHollowCirclePath(doughnutRadius, cutoutRadius));
         return;
@@ -201,11 +193,11 @@ $(function(){
             startX2 = centerX + cos(endRadius) * cutoutRadius,
             startY2 = centerY + sin(endRadius) * cutoutRadius;
         var cmd = [
-          'M', startX, startY,//Move pointer
-          'A', doughnutRadius, doughnutRadius, 0, largeArc, 1, endX, endY,//Draw outer arc path
-          'L', startX2, startY2,//Draw line path(this line connects outer and innner arc paths)
-          'A', cutoutRadius, cutoutRadius, 0, largeArc, 0, endX2, endY2,//Draw inner arc path
-          'Z'//Cloth path
+          'M', startX, startY,
+          'A', doughnutRadius, doughnutRadius, 0, largeArc, 1, endX, endY,
+          'L', startX2, startY2,
+          'A', cutoutRadius, cutoutRadius, 0, largeArc, 0, endX2, endY2,
+          'Z'
         ];
         $paths[i].attr("d", cmd.join(' '));
         startRadius += segmentAngle;
