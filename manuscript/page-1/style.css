@@ -34,19 +34,9 @@ h1 {
 .nth-line-1 {
   font-size: 19vw;
 }
-@media (min-width: 55em) {
-  .nth-line-1 {
-    font-size: 10.5vw;
-  }
-}
 
 .nth-line-2 {
   font-size: 14.5vw;
-}
-@media (min-width: 55em) {
-  .nth-line-2 {
-    font-size: 8vw;
-  }
 }
 
 .lead {
