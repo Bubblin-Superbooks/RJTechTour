@@ -1,3 +1,7 @@
+.cinzel-decorative {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
 body {
   background: url(//raw.githubusercontent.com/marvindanig/RJTechTour/master/assets/images/blurry-blue.jpg);
   background-size: cover;

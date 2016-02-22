@@ -21,6 +21,7 @@ h1 {
   border-bottom: 2px solid #2f2f2f;
   border-top: 2px solid #2f2f2f;
   padding: 1.2vw 0 1.2vw 0;
+  margin: 2vw 0;
   font-size: 3vw;
 }
 
@@ -28,4 +29,5 @@ h1 {
 .head {
   text-align: center;
   position: relative;
+  font-size:2vw;
 }

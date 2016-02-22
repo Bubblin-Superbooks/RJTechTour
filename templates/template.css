@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Source+Serif+Pro|Josefin+Sans|Cinzel+Decorative:400,900');
+@import url('//fonts.googleapis.com/css?family=Source+Serif+Pro|Josefin+Sans');
 
 body {
   background: #fff;
@@ -47,9 +47,6 @@ a:active {
 
 /* Page specific */
 
-.cinzel-decorative {
-  font-family: 'Cinzel Decorative', cursive;
-}
 
 .josefin-sans {
   font-family: 'Josefin Sans', sans-serif;
