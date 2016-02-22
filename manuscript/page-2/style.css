@@ -7,10 +7,10 @@ body {
 section p:first-of-type:first-letter {
   color: #fcf704;
   float: left;
-  font-size: 20vw;
+  font-size: 16vw;
   line-height: 1;
-  margin-top: -0.1vw;
-  margin-bottom: -0.1vw;
+  margin-top: -0.1em;
+  margin-bottom: -0.1em;
   margin-right: 2vw;
 }
 
